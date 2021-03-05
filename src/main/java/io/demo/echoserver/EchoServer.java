@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * A simple server that takes size delimited byte arrays and just echos them back to the sender.
  */
 class EchoServer extends Thread {
-	public final int port;
+	private final static int port = 9093;
 	private final ServerSocket serverSocket;
 	private final List<Thread> threads;
 	private final List<Socket> sockets;
@@ -28,13 +28,12 @@ class EchoServer extends Thread {
 	public static void main(String[] args) throws Exception {
 		Map<String, Object> configs = new HashMap<String, Object>();
 		EchoServer server = new EchoServer(configs);
-		System.out.println("starting...");
+		System.out.println("start listening on port " + port);
 		server.start();
 	}
 
 	public EchoServer(Map<String, ?> configs) throws Exception {
-		this.serverSocket = new ServerSocket(8080);
-		this.port = this.serverSocket.getLocalPort();
+		this.serverSocket = new ServerSocket(port);
 		this.threads = Collections.synchronizedList(new ArrayList<>());
 		this.sockets = Collections.synchronizedList(new ArrayList<>());
 	}
@@ -56,12 +55,13 @@ class EchoServer extends Thread {
 					Thread thread = new Thread() {
 						@Override
 						public void run() {
+							System.out.println("starting new for thread for client port " + socket.getPort());
 							try {
 								BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 								DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 								while (socket.isConnected() && !socket.isClosed()) {
 									String line = input.readLine();
-									System.out.println("Server: " + line);
+									System.out.println("Echoing client port " + socket.getPort() + ": " + line);
 									output.writeChars(line + "\n");
 									output.flush();
 
