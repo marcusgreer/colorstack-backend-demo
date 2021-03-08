@@ -77,6 +77,7 @@ class EchoServer extends Thread {
 							}
 						}
 					};
+					thread.setName("client from port " + socket.getPort());
 					thread.start();
 					threads.add(thread);
 				}
