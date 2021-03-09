@@ -1,14 +1,45 @@
-# Getting Started
+# Confluent // Colorstack Backend Development Demo
 
-### Reference Documentation
-For further reference, please consider the following sections:
+## How To Run
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.4.3/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.4.3/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.4.3/reference/htmlsingle/#boot-features-developing-web-applications)
+Use your terminal to go to the location on your local machine where you want to download
+this code, and then clone it from Github.
 
-### Guides
+```
+$ cd /path/to/your/directory/
+$ git clone https://github.com/marcusgreer/colorstack-backend-demo.git
+$ cd colorstack-backend-demo
+```
+
+#### Echo Server Demo
+```
+TBD
+```
+
+
+#### REST API Demo
+
+**Start the server by running:**
+```
+$ mvn clean package
+$ java -jar target/<demo-jarfile>.jar
+```
+
+Note you should see an output similar to the following in your terminal to confirm that the
+Server is up and running.
+```
+2021-03-08 15:06:56.087  INFO 91332 --- [           main] c.c.ColorstackBackendDemoApplication     : Started ColorstackBackendDemoApplication in 1.83 seconds (JVM running for 2.321)
+```
+
+Make requests to the server via `[cURL](`
+```
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"content":"Do Homework","done":"false"}' \
+  http://localhost:3000/tasks
+```
+
+## Guides
 The following guides illustrate how to use some features concretely:
 
 * [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
