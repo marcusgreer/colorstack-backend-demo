@@ -3,18 +3,18 @@ package colorstackbackenddemo.colorstackbackenddemo;
 class TaskRequest {
 
 	private final String content;
-	private final String status;
+	private final String done;
 
-	TaskRequest(String content, String status) {
+	TaskRequest(String content, String done) {
 		this.content = content;
-		this.status = status;
+		this.done = done;
 	}
 
 	String getContent() {
 		return content;
 	}
 
-	String getStatus() {
-		return status;
+	String getDone() {
+		return done;
 	}
 }

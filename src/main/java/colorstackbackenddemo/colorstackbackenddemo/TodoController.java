@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,11 +23,10 @@ public class TodoController {
 	private final AtomicLong counter = new AtomicLong();
 
 	@GetMapping("/tasks")
-	public List<Task> getAllTasks(@RequestParam(value = "size", defaultValue = "100") Long size,
-	                             @RequestParam(value = "page", defaultValue = "1"  ) Long page,
-	                             @RequestParam(value = "done", defaultValue = "true"  )String done)
+	public List<Task> getAllTasks(@RequestParam(value = "done", defaultValue = "true"  )String done)
 	{
-		return new ArrayList(TODO_LIST.values());
+		List<Task> taskList = new ArrayList<>(TODO_LIST.values());
+		return taskList.stream().filter(task -> done.equals(task.getDone())).collect(Collectors.toList());
 	}
 
 	@GetMapping("/tasks/{id}")
