@@ -1,4 +1,4 @@
-package colorstackbackenddemo.colorstackbackenddemo;
+package io.demo.restapi;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,7 +23,7 @@ public class TodoController {
 	private final AtomicLong counter = new AtomicLong();
 
 	@GetMapping("/tasks")
-	public List<Task> getAllTasks(@RequestParam(value = "done", defaultValue = "true"  )String done)
+	public List<Task> getAllTasks(@RequestParam(value = "done", defaultValue = "false"  )String done)
 	{
 		List<Task> taskList = new ArrayList<>(TODO_LIST.values());
 		return taskList.stream().filter(task -> done.equals(task.getDone())).collect(Collectors.toList());

@@ -22,7 +22,7 @@ TBD
 **Start the server by running:**
 ```
 $ mvn clean package
-$ java -jar target/<demo-jarfile>.jar
+$ java -jar rest-api-demo/target/rest-api-demo-0.0.1-SNAPSHOT.jar
 ```
 
 Note you should see an output similar to the following in your terminal to confirm that the
