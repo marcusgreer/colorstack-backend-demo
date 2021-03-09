@@ -1,7 +1,7 @@
 # Confluent // Colorstack Backend Development Demo
 
-## How To Run
-
+## Set Up Your Environment
+Install Maven for your specific operating system using [this link](https://maven.apache.org/install.html). 
 Use your terminal to navigate to the location on your local machine where you want to download
 this code, and then clone it from Github.
 
@@ -11,15 +11,20 @@ $ git clone https://github.com/marcusgreer/colorstack-backend-demo.git
 $ cd colorstack-backend-demo
 ```
 
+## How To Run
+
 ### Echo Server Demo
 ```
 $ mvn clean package
 $ java -jar echo-server-demo/target/echo-server-demo-1.0-SNAPSHOT.jar
 ```
-Keep this terminal window open, and then in a separate window run the command via [netcat](https://linuxize.com/post/netcat-nc-command-with-examples/)
+Keep this terminal window open, and then run the following command in a separate window using [netcat](https://linuxize.com/post/netcat-nc-command-with-examples/)
 ```
 $ nc localhost 9093
 ```
+Type text into the same terminal where netcat is running, and see it echoed back to you
+
+Kill the Client and Server processes by running `Ctrl+C` in the terminal windows.
 
 ### REST API Demo
 
@@ -42,6 +47,17 @@ curl --header "Content-Type: application/json" \
   --data '{"content":"Do Homework","done":"false"}' \
   http://localhost:3000/tasks
 ```
+
+## Assignment
+Modify the code in `/rest-api-demo/src/main/java/io/demo/restapi/` to create your own API. 
+
+One example would be to create your own version of twitter that can 
+- Handle multiple users.
+- The ability to subscribe/unsubscribe and
+- Get the last N articles that a user is following.
+
+Alternatively, be creative and gain inspiration from the various applications your use every day.
+
 
 ## Guides
 The following guides illustrate how to use some features concretely:
