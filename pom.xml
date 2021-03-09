@@ -8,6 +8,12 @@
     <artifactId>colorstack-backend-demo</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>rest-api-demo</module>
+        <module>echo-server-demo</module>
+    </modules>
+
     <build>
         <plugins>
             <plugin>
@@ -20,9 +26,5 @@
             </plugin>
         </plugins>
     </build>
-    <modules>
-        <module>rest-api-demo</module>
-        <module>echo-server-demo</module>
-    </modules>
 
 </project>

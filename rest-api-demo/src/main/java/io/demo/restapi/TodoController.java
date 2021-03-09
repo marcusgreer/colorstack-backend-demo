@@ -25,7 +25,7 @@ public class TodoController {
 
 	@GetMapping("/tasks")
 	public List<Task> getAllTasks(@RequestParam(value = "done", defaultValue = "all"  )String done)
-	{
+{
 		if(USE_STORAGE) TODO_LIST = PersistentStorage.read();
 		List<Task> taskList = new ArrayList<>(TODO_LIST.values());
 		if (done.equals("all")) return taskList;
