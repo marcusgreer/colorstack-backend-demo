@@ -29,4 +29,9 @@ public class Task {
 	public String getDone() {
 		return done;
 	}
+
+	@Override
+	public String toString() {
+		return "{ \"id\": \""+ getId() + "\", \"content\": \"" + getContent() + "\", \"done\":\"" + getDone() + "\" }";
+	}
 }

@@ -2,7 +2,7 @@
 
 ## How To Run
 
-Use your terminal to go to the location on your local machine where you want to download
+Use your terminal to navigate to the location on your local machine where you want to download
 this code, and then clone it from Github.
 
 ```
