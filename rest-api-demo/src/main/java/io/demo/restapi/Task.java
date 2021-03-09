@@ -1,4 +1,4 @@
-package colorstackbackenddemo.colorstackbackenddemo;
+package io.demo.restapi;
 
 public class Task {
 

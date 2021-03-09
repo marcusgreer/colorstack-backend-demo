@@ -34,8 +34,8 @@ class EchoServer extends Thread {
 
 	public EchoServer(Map<String, ?> configs) throws Exception {
 		this.serverSocket = new ServerSocket(port);
-		this.threads = Collections.synchronizedList(new ArrayList<>());
-		this.sockets = Collections.synchronizedList(new ArrayList<>());
+		this.threads = Collections.synchronizedList(new ArrayList<Thread>());
+		this.sockets = Collections.synchronizedList(new ArrayList<Socket>());
 	}
 
 	public void renegotiate() {
